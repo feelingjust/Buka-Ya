@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Cecilia Amanda</title></title>
+    <meta name="description" content="Teks Berjalan By NanIT\nDi Buka Ya :)\nMaaf Ya..">
+    <style>
+        body {
+          background-color: black;
+        }
+        
+        .typing-container {
+            color: Red;
+            font-family: 'Helvetica', sans-serif;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            white-space: pre-wrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="typing-container" id="typing-container"></div>
+    <script>
+        const lyrics = [
+            { text: "Hallo Cecilia Amanda Putri", speed: 80 },
+            { text: "", speed: 10 },
+            { text: "Aku mau bilang sesuatu...", speed: 60 },
+            { text: "", speed: 60 },
+            { text: "", speed: 10 },
+            { text: "Kamu baik baik kedepannya. mungkin ini bakal jadi kalimat terakhir aku, terimakasih telah memberi rasa notifmu, terimakasih sudah menemani ku masa masa putih biru atau masa masa smp itu, aku harap kamu bisa kembali, tapi kayaknya kamu ga mau lagi deh, dan terimakasih juga sudah mengenal pribadiku yang tidak semua orang tau, aku gagal dan hari ini aku berusaha sebaik mungkin. Tugasku udah usai dan selamat melanjutkan perjalananmu. selamat tinggal untuk kisah kita dan setelah tidak ada lagi aku dan kamu setelahnya, jaga dirimu dengan baik dan hiduplah dengan bahagia setelah terlepas hari burukmu bersamaku, jangan lagi salah memilih orang yang salah seperti diriku yang hanya bisa menyakitimu, aku mencintaimu, berbahagialah dan terimakasih untuk waktu yang telah kita lalui bersama, mungkin aku tak akan bisa melupakan waktu bersamamu, semoga aku dan kamu bertemu akhir yang bahagia meskipun dengan orang yang berbeda see you jaga diri kamu baik-baik", speed: 20 },
+            { text: "", speed: 10 },
+            { text: "Makasih orang baik, aku ga nyangka bisa", speed: 80 },
+            { text: "Ketemu kamu cecilia amanda..", speed: 60 },
+            { text: "", speed: 10 },
+            { text: "Cecilia Amanda Putri", speed: 60 },
+            { text: "Jangan pernah berubah yaa..", speed: 60 },
+            { text: "Tetaplah menjadi sifat mu yang baik", speed: 60 },
+            { text: "", speed: 10 },
+            { text: "", speed: 10 },
+            { text: "Terimakasih Cecilia Amanda Putri", speed: 40 },
+            { text: ":)", speed: 60 },
+            { text: "", speed: 60 },
+        ];
+
+        const delays = [0.9, 2.0, 3.7, 5.4, 7.1, 8.8, 10.5, 12.2, 13.9]
+        const container = document.getElementById('typing-container');
+
+        async function typeLyrics() {
+            for (let i = 0; i < lyrics.length; i++) {
+                const { text, speed } = lyrics[i];
+                const delay = i === 0 ? delays[i] : delays[i] - delays[i - 1];
+                
+                await new Promise(r => setTimeout(r, delay));
+                
+                for (const char of text) {
+                    container.textContent += char;
+                    await new Promise(r => setTimeout(r, speed));
+                }
+                container.textContent += '\n';
+            }
+        }
+
+        typeLyrics();
+    </script>
+</body>
+</html>
